@@ -4,5 +4,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {},
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^2.8.3"
+  }
 }

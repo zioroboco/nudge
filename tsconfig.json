@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "lib": ["es6", "esnext.asynciterable"],
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "baseUrl": "."
+  }
+}
