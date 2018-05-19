@@ -1,0 +1,11 @@
+service: nudge
+
+frameworkVersion: ">=1.1.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+plugins:
+  - serverless-plugin-typescript
+
