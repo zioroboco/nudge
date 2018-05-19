@@ -9,3 +9,6 @@ provider:
 plugins:
   - serverless-plugin-typescript
 
+functions:
+  nudge:
+    handler: src/nudge.handler

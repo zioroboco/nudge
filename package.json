@@ -4,6 +4,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "invoke": "yarn sls invoke local --function nudge",
     "deploy": "yarn sls deploy"
   },
   "dependencies": {},
