@@ -1,5 +1,9 @@
 service: nudge
 
+custom:
+  repo: zioroboco/nudge
+  tag: nudge
+
 frameworkVersion: ">=1.1.0 <2.0.0"
 
 provider:
@@ -12,3 +16,6 @@ plugins:
 functions:
   nudge:
     handler: src/nudge.handler
+    environment:
+      REPO: ${self:custom.repo}
+      TAG: ${self:custom.tag}
