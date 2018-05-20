@@ -8,7 +8,9 @@
     "invoke": "yarn sls invoke local --function nudge",
     "deploy": "yarn sls deploy"
   },
-  "dependencies": {},
+  "dependencies": {
+    "aws-sdk": "^2.243.1"
+  },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.4",
     "@types/jest": "^22.2.3",
