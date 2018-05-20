@@ -4,14 +4,18 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "test": "jest",
     "invoke": "yarn sls invoke local --function nudge",
     "deploy": "yarn sls deploy"
   },
   "dependencies": {},
   "devDependencies": {
     "@types/aws-lambda": "^8.10.4",
+    "@types/jest": "^22.2.3",
+    "jest": "^22.4.4",
     "serverless": "^1.27.2",
     "serverless-plugin-typescript": "^1.1.5",
+    "ts-jest": "^22.4.6",
     "typescript": "^2.8.3"
   }
 }
