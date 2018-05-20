@@ -1,7 +1,7 @@
 version: 2
 
 jobs:
-  test:
+  build:
     docker:
       - image: circleci/node:8.10
     steps:
@@ -9,6 +9,10 @@ jobs:
       - run:
           name: install
           command: yarn install --pure-lockfile
+  test:
+    docker:
+      - image: circleci/node:8.10
+    steps:
       - run:
           name: test
           command: yarn test --ci
