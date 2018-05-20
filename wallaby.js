@@ -8,8 +8,8 @@ module.exports = wallaby => ({
     type: "node"
   },
   testFramework: "jest",
-  files: ["jest.config.js", "tsconfig.json", "src/**", "!tests/**/*.test.ts"],
-  tests: ["tests/**/*.test.ts", "!node_modules/**"],
+  files: ["jest.config.js", "tsconfig.json", "src/**", "!tests/**/*.spec.ts"],
+  tests: ["tests/**/*.spec.ts", "!node_modules/**"],
   compilers: {
     "**/*.ts": wallaby.compilers.typeScript({
       typescript: require("typescript")
