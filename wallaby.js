@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 module.exports = wallaby => ({
   debug: true,
   workers: { initial: 2, regular: 1 },
@@ -8,7 +10,13 @@ module.exports = wallaby => ({
     type: "node"
   },
   testFramework: "jest",
-  files: ["jest.config.js", "tsconfig.json", "src/**", "!tests/**/*.spec.ts"],
+  files: [
+    "jest.config.js",
+    "jest.setup.js",
+    "tsconfig.json",
+    "src/**",
+    "!tests/**/*.spec.ts"
+  ],
   tests: ["tests/**/*.spec.ts", "!node_modules/**"],
   compilers: {
     "**/*.ts": wallaby.compilers.typeScript({
