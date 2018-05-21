@@ -1,5 +1,8 @@
 import { getSecret } from "../src/secrets"
 
+// Allow more time for long-running integration tests
+jest.setTimeout(10000)
+
 // The AWS region of the testing environment
 const region = process.env.AWS_DEFAULT_REGION!
 

@@ -1,5 +1,8 @@
 import { fetchPathsTaggedWith } from "../src/tags"
 
+// Allow more time for long-running integration tests
+jest.setTimeout(10000)
+
 // Test against the nudge repo itself using the default tag
 const repo = "zioroboco/nudge"
 const tag = "nudge"
