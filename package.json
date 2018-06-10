@@ -4,7 +4,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "test": "jest",
+    "test": "jest --changedSince='origin/master'",
     "invoke": "yarn sls invoke local --function nudge",
     "deploy": "yarn sls deploy"
   },
