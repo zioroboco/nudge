@@ -1,4 +1,4 @@
-import { fetchPathsTaggedWith } from "../src/tags"
+import { fetchPathsTaggedWith, fetchFile } from "../src/tags"
 
 // Allow more time for long-running integration tests
 jest.setTimeout(10000)
@@ -14,5 +14,12 @@ describe("fetching tagged filepaths", () => {
   it("returns the path of the test tagged file", async () => {
     const taggedPaths = await fetchPathsTaggedWith(tag, repo)
     expect(taggedPaths).toContain(taggedFilePath)
+  })
+})
+
+describe("fetching the test tagged file by path", () => {
+  it("returns a response with the path of the tagged file", async () => {
+    const response = await fetchFile(repo, taggedFilePath)
+    expect(response.path).toBe(taggedFilePath)
   })
 })
