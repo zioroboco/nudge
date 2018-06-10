@@ -11,7 +11,7 @@ const tag = "nudge"
 const taggedFilePath = "tests/tagged-file.md"
 
 describe("fetching tagged filepaths", () => {
-  it("returns the test tagged file", async () => {
+  it("returns the path of the test tagged file", async () => {
     const taggedPaths = await fetchPathsTaggedWith(tag, repo)
     expect(taggedPaths).toContain(taggedFilePath)
   })
