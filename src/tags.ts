@@ -55,4 +55,7 @@ const fetchFile = async (repo: string, path: string): Promise<GitHubFile> => {
   return result
 }
 
-export { fetchPathsTaggedWith, fetchFile }
+const lines = (file: GitHubFile): string[] =>
+  new Buffer(file.content, "base64").toString("utf8").split("\n")
+
+export { fetchPathsTaggedWith, fetchFile, lines }
