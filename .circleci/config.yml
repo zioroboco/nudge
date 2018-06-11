@@ -12,4 +12,4 @@ jobs:
           command: yarn install --pure-lockfile
       - run:
           name: test
-          command: yarn test --ci
+          command: yarn test --ci --runInBand

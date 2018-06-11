@@ -11,7 +11,7 @@ const tag = "nudge"
 const taggedFilePath = "tests/tagged-file.md"
 
 describe("fetching tagged filepaths", () => {
-  it("returns the path of the test tagged file", async () => {
+  it.concurrent("returns the path of the test tagged file", async () => {
     const token = await getToken()
     const taggedPaths = await fetchPathsTaggedWith(tag, repo, token)
     expect(taggedPaths).toContain(taggedFilePath)
@@ -19,13 +19,13 @@ describe("fetching tagged filepaths", () => {
 })
 
 describe("fetching the test tagged file by path", () => {
-  it("returns a response with the path of the tagged file", async () => {
+  it.concurrent("returns a response with the tagged file's path", async () => {
     const token = await getToken()
     const response = await fetchFile(repo, taggedFilePath, token)
     expect(response.path).toBe(taggedFilePath)
   })
 
-  it("has a first line matching the test tagged file", async () => {
+  it.concurrent("has a first line matching the test tagged file", async () => {
     const token = await getToken()
     const response = await fetchFile(repo, taggedFilePath, token)
     const firstLine = lines(response)[0]
