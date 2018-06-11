@@ -35,19 +35,24 @@ interface QueryResult {
 }
 
 /** Query the GitHub API, returning the paths of all tagged markdown files. */
-const fetchPathsTaggedWith = async (tag: string, repo: string) => {
-  const query = `q=[${tag}]+repo:${repo}+in:file+language:markdown`
-  const token = await getToken()
+const fetchPathsTaggedWith = async (
+  tag: string,
+  repo: string,
+  token: string
+) => {
   const result = await fetch(
-    `${baseUrl}/search/code?${query}`,
+    `${baseUrl}/search/code?q=[${tag}]+repo:${repo}+in:file+language:markdown`,
     initWithToken(token)
   ).then(body => body.json<QueryResult>())
   const taggedFilePaths = result.items.map(item => item.path)
   return taggedFilePaths
 }
 
-const fetchFile = async (repo: string, path: string): Promise<GitHubFile> => {
-  const token = await getToken()
+const fetchFile = async (
+  repo: string,
+  path: string,
+  token: string
+): Promise<GitHubFile> => {
   const result = await fetch(
     `${baseUrl}/repos/${repo}/contents/${path}`,
     initWithToken(token)
@@ -58,4 +63,4 @@ const fetchFile = async (repo: string, path: string): Promise<GitHubFile> => {
 const lines = (file: GitHubFile): string[] =>
   new Buffer(file.content, "base64").toString("utf8").split("\n")
 
-export { fetchPathsTaggedWith, fetchFile, lines }
+export { getToken, fetchPathsTaggedWith, fetchFile, lines }
