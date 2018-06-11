@@ -63,4 +63,12 @@ const fetchFile = async (
 const lines = (file: GitHubFile): string[] =>
   new Buffer(file.content, "base64").toString("utf8").split("\n")
 
-export { getToken, fetchPathsTaggedWith, fetchFile, lines }
+type Tag = { repo: string; file: string; link: string; content: string }
+
+const tags = (lines: string[], path: string, repo: string = REPO) =>
+  lines
+    .map(line => line.match(/^\[nudge\]:\s(#[\w-]*)\s\((.+)\)/))
+    .filter(match => match !== null)
+    .map(match => [match![1], match![2]])
+
+export { getToken, fetchPathsTaggedWith, fetchFile, lines, tags }
